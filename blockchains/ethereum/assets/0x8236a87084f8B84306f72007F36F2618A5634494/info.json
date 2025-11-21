@@ -5,9 +5,9 @@
     "decimals": 8,
     "website": "https://www.lombard.finance",
     "description": "Lombard brings Bitcoin to life onchain, for people, protocols, and platforms.",
-    "explorer": "https://etherscan.io/token/0x8236a87084f8b84306f72007f36f2618a5634494",
+    "explorer": "https://etherscan.io/token/0x8236a87084f8B84306f72007F36F2618A5634494",
     "status": "active",
-    "id": "0x8236a87084f8b84306f72007f36f2618a5634494",
+    "id": "0x8236a87084f8B84306f72007F36F2618A5634494",
     "links": [
         {
             "name": "x",
@@ -25,6 +25,6 @@
     "tags": [
         "restaking",
         "liquid restaking tokens",
-        "liquid staked btc",
+        "liquid staked btc"
     ]
 }
