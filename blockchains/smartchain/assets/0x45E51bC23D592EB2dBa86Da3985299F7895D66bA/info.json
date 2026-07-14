@@ -1,0 +1,24 @@
+{
+    "name": "Decentralized USD",
+    "symbol": "USDD",
+    "type": "BEP20",
+    "decimals": 18,
+    "description": "Decentralized USD (USDD) is a fully decentralized stablecoin pegged to the US dollar through crypto reserves.",
+    "website": "https://usdd.io/",
+    "explorer": "https://bscscan.com/token/0x45E51bC23D592EB2dBa86Da3985299F7895D66bA",
+    "status": "active",
+    "id": "0x45E51bC23D592EB2dBa86Da3985299F7895D66bA",
+    "links": [
+        {
+            "name": "x",
+            "url": "https://x.com/usddio"
+        },
+        {
+            "name": "whitepaper",
+            "url": "https://usdd.io/USDD-en.pdf"
+        }
+    ],
+    "tags": [
+        "stablecoin"
+    ]
+}
