@@ -5,9 +5,9 @@
     "decimals": 18,
     "description": "Decentralized USD (USDD) is a fully decentralized stablecoin pegged to the US dollar through crypto reserves.",
     "website": "https://usdd.io/",
-    "explorer": "https://bscscan.com/token/0x45E51bC23D592EB2dBa86Da3985299F7895D66bA",
+    "explorer": "https://bscscan.com/token/0x45E51bc23D592EB2DBA86da3985299f7895d66Ba",
     "status": "active",
-    "id": "0x45E51bC23D592EB2dBa86Da3985299F7895D66bA",
+    "id": "0x45E51bc23D592EB2DBA86da3985299f7895d66Ba",
     "links": [
         {
             "name": "x",
