@@ -1,0 +1,20 @@
+{
+    "name": "Hosky Token",
+    "website": "https://hosky.io",
+    "explorer": "https://cexplorer.io/asset/asset17q7r59zlc3dgw0venc80pdv566q6yguw03f0d9",
+    "type": "CARDANO",
+    "symbol": "HOSKY",
+    "decimals": 0,
+    "status": "active",
+    "id": "asset17q7r59zlc3dgw0venc80pdv566q6yguw03f0d9",
+    "links": [
+        {
+            "name": "coinmarketcap",
+            "url": "https://coinmarketcap.com/currencies/hosky-token/"
+        },
+        {
+            "name": "coingecko",
+            "url": "https://coingecko.com/en/coins/hosky-token/"
+        }
+    ]
+}
