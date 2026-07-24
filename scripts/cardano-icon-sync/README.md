@@ -56,12 +56,15 @@ matches what a real run would actually write.
 
 There is no `make check` CI in this repo, so these bounds are icon **hygiene**, not a hard
 gate — but they keep the imported set sane and future-proof against that CI being enabled
-(`60 ≤ edge ≤ 512`, `≤ 100 KB`). The script carries no image library, so it cannot resize;
-it **skips** any logo that:
+(`60 ≤ edge ≤ 512`, `≤ 100 KB`). Each logo is handled as:
 
-- has no `logo` field, is not PNG, or has a truncated / non-IHDR header;
-- has an edge `< 60px` (too small to upscale) or `> 512px` (no resizer to downscale it);
-- is `> 100 KB`.
+- no `logo` field, not PNG, or a truncated / non-IHDR header → **skip**;
+- edge `< 60px` → **skip** (no upscaling);
+- edge `> 512px` → **downscale to 512px** with macOS `sips`, preserving aspect ratio
+  (reported as `resized`). Without `sips` on PATH (e.g. on Linux) these are **skipped**
+  instead and the run prints a warning;
+- still `> 100 KB` after any downscale → **skip** (`sips -Z` shrinks dimensions, not the
+  compressed byte size, so a dense 512px PNG can still exceed the cap).
 
 ## Tests
 
