@@ -51,6 +51,42 @@ There are several scripts available for maintainers:
 - `make add-tokenlist asset_id=c60_t0x4Fabb145d64652a948d72533023f6E7A623C7C53` -- Adds a token to tokenlist.json.
 - `make add-tokenlist-extended asset_id=c60_t0x4Fabb145d64652a948d72533023f6E7A623C7C53` -- Adds a token to tokenlist-extended.json.
 
+## Cardano token icons (CoolBitX)
+
+`scripts/cardano-icon-sync/` imports Cardano token logos from the
+[Cardano Foundation token registry](https://github.com/cardano-foundation/cardano-token-registry)
+into `blockchains/cardano/assets/<fingerprint>/logo.png`, so the CoolWallet app can serve
+long-tail Cardano token icons by URL instead of falling back to a default icon. It converts
+the registry's `subject` to the CIP-14 fingerprint the app requests, using the same library
+the app uses. It writes `logo.png` only — the app never reads a per-asset `info.json`.
+
+### Quick start
+
+```bash
+# 1. clone the Cardano Foundation token registry somewhere
+git clone https://github.com/cardano-foundation/cardano-token-registry.git /tmp/ctr
+
+# 2. install the tool's one dependency
+cd scripts/cardano-icon-sync
+npm install
+
+# 3. dry-run: report what a full import would write, touching nothing
+node sync-cardano-token-icons.js --registry /tmp/ctr --out ../.. --dry-run
+
+# 4. import for real (writes logo.png into blockchains/cardano/assets/<fingerprint>/)
+node sync-cardano-token-icons.js --registry /tmp/ctr --out ../..
+
+# 5. review the new logos, then commit and open a PR from the repo root
+```
+
+Import a single token — e.g. for a validation PR — with `--subject <hex>`, or from one
+mapping file with `--file <mapping.json>`. By default existing icons are kept (skipped);
+pass `--overwrite` to replace them. Run `npm test` to check the `subject → fingerprint`
+conversion against the app's golden vectors.
+
+See [`scripts/cardano-icon-sync/README.md`](scripts/cardano-icon-sync/README.md) for all
+flags, the dimension/size rules, and the correctness notes.
+
 ## On Checks
 
 This repo contains a set of scripts for verification of all the information. Implemented as Golang scripts, available through `make check`, and executed in CI build; checks the whole repo.
