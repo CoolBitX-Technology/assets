@@ -3,10 +3,20 @@ name: Sync Cardano Token Icons
 on:
   # schedule:
   #   - cron: '0 3 * * 1'   # every Monday 03:00 UTC
-  # workflow_dispatch:
-  push: 
+  push:
     branches:
       - "chore/sync-ada-token-action"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max icons to write (leave empty for unlimited)'
+        required: false
+        default: ''
+      overwrite:
+        description: 'Overwrite existing icons'
+        required: false
+        type: boolean
+        default: false
 
 
 permissions:
@@ -35,9 +45,13 @@ jobs:
 
       - name: Run sync
         run: |
+          EXTRA_FLAGS=""
+          if [ -n "${{ inputs.limit }}" ]; then EXTRA_FLAGS="$EXTRA_FLAGS --limit ${{ inputs.limit }}"; fi
+          if [ "${{ inputs.overwrite }}" = "true" ]; then EXTRA_FLAGS="$EXTRA_FLAGS --overwrite"; fi
           node scripts/cardano-icon-sync/sync-cardano-token-icons.js \
             --registry /tmp/ctr \
             --out . \
+            $EXTRA_FLAGS \
           | tee /tmp/sync-stats.txt
 
       - name: Check for changes
