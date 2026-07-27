@@ -38,6 +38,7 @@ jobs:
           node scripts/cardano-icon-sync/sync-cardano-token-icons.js \
             --registry /tmp/ctr \
             --out . \
+            --overwrite --limit 5 \
           | tee /tmp/sync-stats.txt
 
       - name: Check for changes
