@@ -1,0 +1,75 @@
+name: Sync Cardano Token Icons
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'   # every Monday 03:00 UTC
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Clone Cardano token registry
+        run: git clone --depth=1 https://github.com/cardano-foundation/cardano-token-registry.git /tmp/ctr
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: scripts/cardano-icon-sync/package-lock.json
+
+      - name: Install dependencies
+        working-directory: scripts/cardano-icon-sync
+        run: npm ci
+
+      - name: Run sync
+        run: |
+          node scripts/cardano-icon-sync/sync-cardano-token-icons.js \
+            --registry /tmp/ctr \
+            --out . \
+          | tee /tmp/sync-stats.txt
+
+      - name: Check for changes
+        id: diff
+        run: |
+          count=$(git status --short -- blockchains/cardano/assets/ | wc -l | tr -d ' ')
+          echo "count=$count" >> $GITHUB_OUTPUT
+
+      - name: Commit, push, open PR
+        if: steps.diff.outputs.count != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          BRANCH="chore/cardano-icon-sync-${DATE}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add -- blockchains/cardano/assets/
+          git commit -m "chore: weekly Cardano token icon sync ${DATE}"
+          git push origin "$BRANCH"
+
+          STATS=$(cat /tmp/sync-stats.txt)
+          {
+            echo "## Cardano icon sync — ${DATE}"
+            echo ""
+            echo "Automated weekly sync from https://github.com/cardano-foundation/cardano-token-registry"
+            echo ""
+            echo '```'
+            echo "${STATS}"
+            echo '```'
+          } > /tmp/pr-body.md
+          gh pr create \
+            --title "chore: weekly Cardano token icon sync ${DATE}" \
+            --base master \
+            --head "$BRANCH" \
+            --body-file /tmp/pr-body.md
