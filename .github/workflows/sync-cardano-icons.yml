@@ -6,18 +6,6 @@ on:
   push:
     branches:
       - "chore/sync-ada-token-action"
-  workflow_dispatch:
-    inputs:
-      limit:
-        description: 'Max icons to write (leave empty for unlimited)'
-        required: false
-        default: ''
-      overwrite:
-        description: 'Overwrite existing icons'
-        required: false
-        type: boolean
-        default: false
-
 
 permissions:
   contents: write
@@ -29,6 +17,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: chore/sync-ada-token-action
 
       - name: Clone Cardano token registry
         run: git clone --depth=1 https://github.com/cardano-foundation/cardano-token-registry.git /tmp/ctr
@@ -45,13 +35,9 @@ jobs:
 
       - name: Run sync
         run: |
-          EXTRA_FLAGS=""
-          if [ -n "${{ inputs.limit }}" ]; then EXTRA_FLAGS="$EXTRA_FLAGS --limit ${{ inputs.limit }}"; fi
-          if [ "${{ inputs.overwrite }}" = "true" ]; then EXTRA_FLAGS="$EXTRA_FLAGS --overwrite"; fi
           node scripts/cardano-icon-sync/sync-cardano-token-icons.js \
             --registry /tmp/ctr \
             --out . \
-            $EXTRA_FLAGS \
           | tee /tmp/sync-stats.txt
 
       - name: Check for changes
@@ -78,6 +64,6 @@ jobs:
           STATS=$(cat /tmp/sync-stats.txt)
           gh pr create \
             --title "chore: weekly Cardano token icon sync ${DATE}" \
-            --base master \
+            --base chore/sync-ada-token-action \
             --head "$BRANCH" \
             --body "## Cardano icon sync — ${DATE}
