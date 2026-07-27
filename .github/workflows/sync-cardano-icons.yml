@@ -62,8 +62,17 @@ jobs:
           git push origin "$BRANCH"
 
           STATS=$(cat /tmp/sync-stats.txt)
+          {
+            echo "## Cardano icon sync — ${DATE}"
+            echo ""
+            echo "Automated weekly sync from https://github.com/cardano-foundation/cardano-token-registry"
+            echo ""
+            echo '```'
+            echo "${STATS}"
+            echo '```'
+          } > /tmp/pr-body.md
           gh pr create \
             --title "chore: weekly Cardano token icon sync ${DATE}" \
             --base chore/sync-ada-token-action \
             --head "$BRANCH" \
-            --body "## Cardano icon sync — ${DATE}
+            --body-file /tmp/pr-body.md
