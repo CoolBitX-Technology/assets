@@ -1,11 +1,8 @@
 name: Sync Cardano Token Icons
 
 on:
-  # schedule:
-  #   - cron: '0 3 * * 1'   # every Monday 03:00 UTC
-  push:
-    branches:
-      - "chore/sync-ada-token-action"
+  schedule:
+    - cron: '0 3 * * 1'   # every Monday 03:00 UTC
 
 permissions:
   contents: write
@@ -18,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: chore/sync-ada-token-action
+          ref: master
 
       - name: Clone Cardano token registry
         run: git clone --depth=1 https://github.com/cardano-foundation/cardano-token-registry.git /tmp/ctr
@@ -73,6 +70,6 @@ jobs:
           } > /tmp/pr-body.md
           gh pr create \
             --title "chore: weekly Cardano token icon sync ${DATE}" \
-            --base chore/sync-ada-token-action \
+            --base master \
             --head "$BRANCH" \
             --body-file /tmp/pr-body.md
