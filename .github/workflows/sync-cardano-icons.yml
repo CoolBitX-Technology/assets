@@ -3,14 +3,15 @@ name: Sync Cardano Token Icons
 on:
   schedule:
     - cron: '0 3 * * 1'   # every Monday 03:00 UTC
-
-permissions:
-  contents: write
-  pull-requests: write
+  workflow_dispatch:
 
 jobs:
   sync:
     runs-on: macos-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
       - uses: actions/checkout@v4
