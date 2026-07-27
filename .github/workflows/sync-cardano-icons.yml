@@ -37,7 +37,8 @@ jobs:
         run: |
           node scripts/cardano-icon-sync/sync-cardano-token-icons.js \
             --registry /tmp/ctr \
-            --out . 
+            --out . \
+          | tee /tmp/sync-stats.txt
 
       - name: Check for changes
         id: diff
