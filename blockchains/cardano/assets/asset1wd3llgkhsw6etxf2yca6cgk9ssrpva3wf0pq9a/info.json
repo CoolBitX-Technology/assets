@@ -1,0 +1,20 @@
+{
+    "name": "Midnight",
+    "website": "https://midnight.network",
+    "explorer": "https://cexplorer.io/asset/asset1wd3llgkhsw6etxf2yca6cgk9ssrpva3wf0pq9a",
+    "type": "CARDANO",
+    "symbol": "NIGHT",
+    "decimals": 6,
+    "status": "active",
+    "id": "asset1wd3llgkhsw6etxf2yca6cgk9ssrpva3wf0pq9a",
+    "links": [
+        {
+            "name": "coinmarketcap",
+            "url": "https://coinmarketcap.com/currencies/midnight/"
+        },
+        {
+            "name": "coingecko",
+            "url": "https://coingecko.com/en/coins/midnight/"
+        }
+    ]
+}

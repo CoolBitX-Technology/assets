@@ -1,0 +1,20 @@
+{
+    "name": "Strike Finance",
+    "website": "https://app.strikefi.io",
+    "explorer": "https://cexplorer.io/asset/asset1tdalpjgjmt2vrhq9fvwzxqgqcq8ydr7e7e0eta",
+    "type": "CARDANO",
+    "symbol": "STRIKE",
+    "decimals": 6,
+    "status": "active",
+    "id": "asset1tdalpjgjmt2vrhq9fvwzxqgqcq8ydr7e7e0eta",
+    "links": [
+        {
+            "name": "coinmarketcap",
+            "url": "https://coinmarketcap.com/currencies/strike-finance/"
+        },
+        {
+            "name": "coingecko",
+            "url": "https://coingecko.com/en/coins/strike-finance/"
+        }
+    ]
+}

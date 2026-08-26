@@ -1,0 +1,23 @@
+{
+    "name": "Anzens USDA",
+    "website": "https://www.anzens.com",
+    "explorer": "https://cexplorer.io/asset/asset16fq594uun90f2jajmecjcdt4jnsnq7r3jdqsw5",
+    "type": "CARDANO",
+    "symbol": "USDA",
+    "decimals": 6,
+    "status": "active",
+    "id": "asset16fq594uun90f2jajmecjcdt4jnsnq7r3jdqsw5",
+    "tags": [
+        "stablecoin"
+    ],
+    "links": [
+        {
+            "name": "coinmarketcap",
+            "url": "https://coinmarketcap.com/currencies/anzens-usda/"
+        },
+        {
+            "name": "coingecko",
+            "url": "https://coingecko.com/en/coins/anzens-usda/"
+        }
+    ]
+}

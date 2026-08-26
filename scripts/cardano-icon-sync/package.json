@@ -1,0 +1,13 @@
+{
+  "name": "cardano-icon-sync",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sync Cardano Foundation token-registry logos into blockchains/cardano/assets",
+  "bin": { "cardano-icon-sync": "./sync-cardano-token-icons.js" },
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@emurgo/cip14-js": "^3.0.1"
+  }
+}

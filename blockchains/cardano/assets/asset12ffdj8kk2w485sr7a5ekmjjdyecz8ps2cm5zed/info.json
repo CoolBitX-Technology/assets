@@ -1,0 +1,23 @@
+{
+    "name": "USDM",
+    "website": "https://mehen.io",
+    "explorer": "https://cexplorer.io/asset/asset12ffdj8kk2w485sr7a5ekmjjdyecz8ps2cm5zed",
+    "type": "CARDANO",
+    "symbol": "USDM",
+    "decimals": 6,
+    "status": "active",
+    "id": "asset12ffdj8kk2w485sr7a5ekmjjdyecz8ps2cm5zed",
+    "tags": [
+        "stablecoin"
+    ],
+    "links": [
+        {
+            "name": "coinmarketcap",
+            "url": "https://coinmarketcap.com/currencies/mehen-finance/"
+        },
+        {
+            "name": "coingecko",
+            "url": "https://coingecko.com/en/coins/usdm/"
+        }
+    ]
+}

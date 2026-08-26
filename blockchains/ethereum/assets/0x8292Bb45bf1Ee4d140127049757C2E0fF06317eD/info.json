@@ -1,0 +1,11 @@
+{
+    "name": "RLUSD",
+    "symbol": "RLUSD",
+    "type": "ERC20",
+    "decimals": 18,
+    "description": "RLUSD, issued by Standard Custody & Trust Company, LLC, a wholly owned Ripple subsidiary, is the USD-backed stablecoin created with trust and compliance at its core. RLUSD is purpose-built for cross-border payments and delivers reliable access to digital dollars.",
+    "website": "",
+    "explorer": "https://etherscan.io/token/0x8292Bb45bf1Ee4d140127049757C2E0fF06317eD",
+    "status": "active",
+    "id": "0x8292Bb45bf1Ee4d140127049757C2E0fF06317eD"
+}

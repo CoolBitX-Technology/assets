@@ -1,0 +1,29 @@
+{
+    "name": "USDS",
+    "type": "SPL",
+    "symbol": "USDS",
+    "decimals": 6,
+    "website": "https://sky.money/",
+    "description": "USDS is an upgraded version of the DAI token by Sky (formerly MakerDAO). It is a decentralized, unbiased, collateral-backed stablecoin soft-pegged to the US Dollar. The conversion rate is 1 DAI to 1 USDS.",
+    "explorer": "https://solscan.io/token/USDSwr9ApdHk5bvJKMjzff41FfuX8bSxdKcR81vTwcA",
+    "status": "active",
+    "id": "USDSwr9ApdHk5bvJKMjzff41FfuX8bSxdKcR81vTwcA",
+    "links": [
+        {
+            "name": "x",
+            "url": "https://x.com/SkyEcosystem"
+        },
+        {
+            "name": "github",
+            "url": "https://github.com/makerdao/"
+        },
+        {
+            "name": "coinmarketcap",
+            "url": "https://coinmarketcap.com/currencies/usds/"
+        }
+    ],
+    "tags": [
+        "stablecoin",
+        "defi"
+    ]
+}

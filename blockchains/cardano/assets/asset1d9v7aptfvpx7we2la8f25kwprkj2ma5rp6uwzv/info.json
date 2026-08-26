@@ -1,0 +1,20 @@
+{
+    "name": "Minswap",
+    "website": "https://minswap.org",
+    "explorer": "https://cexplorer.io/asset/asset1d9v7aptfvpx7we2la8f25kwprkj2ma5rp6uwzv",
+    "type": "CARDANO",
+    "symbol": "MIN",
+    "decimals": 6,
+    "status": "active",
+    "id": "asset1d9v7aptfvpx7we2la8f25kwprkj2ma5rp6uwzv",
+    "links": [
+        {
+            "name": "coinmarketcap",
+            "url": "https://coinmarketcap.com/currencies/minswap/"
+        },
+        {
+            "name": "coingecko",
+            "url": "https://coingecko.com/en/coins/minswap/"
+        }
+    ]
+}
